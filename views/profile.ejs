@@ -1,0 +1,342 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center ">
+  <!-- header-transparent -->
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <div class="logo">
+      <h1 class="text-light"><a href="/"><span>New Horizon</span></a></h1>
+
+    </div>
+
+    <nav id="navbar-pk" class="navbar-pk">
+      <ul>
+        <li><a class="active " href="/" style="text-decoration:none">Home</a></li>
+        <li><a href="/services" style="text-decoration:none">Services</a></li>
+        <!-- <li><a href="/services" style="text-decoration:none">Notifications</a></li> -->
+        <li class="dropdown"><a href="/profile" style="text-decoration:none"><span><%= user.fname %></span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="/profile" style="text-decoration:none">Profile</a></li>
+            <li><a href="/edit/<%= user._id %>" style="text-decoration:none">Update Profile</a></li>
+            <li><a href="/logout" style="text-decoration:none">Logout</a></li>
+
+          </ul>
+        </li>
+
+        <li><a href="/about" style="text-decoration:none">About</a></li>
+        <li><a href="/team" style="text-decoration:none">Team</a></li>
+        <li><a href="/contact" style="text-decoration:none">Contact Us</a></li>
+
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle-pk"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+
+<main id="main">
+
+  <!-- <div class="container">
+        <div class="header clearfix">
+          <nav id="reload">
+            <ul class="nav nav-pills pull-right">
+              {{#if user}}
+                <input type="hidden"  id="currentuser" value="{{user.username}}">
+                <li role="presentation"><a href="/search">Search <i class="fa fa-search"></i></a></li>
+                <li>
+                  <div class="dropdown" style="">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-plus"></i>
+                  <span class="caret"></span></button>
+                    <ul class="dropdown-menu" style="width: 300px; height: 400px; overflow-y: scroll;">
+                      {{#if user.request}}
+                      {{#each newfriend}}
+                      <li style="border-bottom: 1px solid lightgray">
+                        <a href="#">
+                            <div>
+                              <h4>{{this.username}}</h4>
+                            </div>
+                            <div>
+
+                                <div style="width: 50%; display: inline;">
+                                  <input type="hidden" name="senderId" id="senderId" value="{{this.userId}}">
+                                  <input type="hidden" name="senderName" id="senderName" value="{{this.username}}">
+                                  <button type="submit" id="accept_friend" class="btn btn-primary" style="width: 8em">Accept</button>
+                                </div>
+                                <div style="width: 50%;  display: inline;">
+                                   <input type="hidden" name="user_Id" id="user_Id" value="{{this.userId}}">
+                                  <button type="submit" id="cancel_friend" class="btn btn-primary" style="width: 8em">Cancel</button>
+                                </div>
+                            </div>
+                        </a>
+                      </li>
+                      {{/each}}
+                      {{else}}
+                      <div>
+                        <h4 style="text-align:center">No requests</h4>
+                      </div>
+                      {{/if}}
+                    </ul>
+                  </div>
+                </li>
+                <li role="presentation"><a href="/users/logout">Logout</a></li>
+              {{else}}
+                <li role="presentation"><a href="/users/login">Login</a></li>
+                <li role="presentation"><a href="/users/register">Register</a></li>
+              {{/if}}
+            </ul>
+          </nav>
+          <h3 class="text-muted"><img src="../upload/panda.png" style="width: 100px; position: absolute;left: 200px"> Panda DOTS</h3>
+        </div> -->
+
+
+
+  <section class="breadcrumbs" style="background-color:#e1e5ea;">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <script>
+          function display_ct7() {
+            var x = new Date()
+            var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+            hours = x.getHours() % 12;
+            hours = hours ? hours : 12;
+            hours = hours.toString().length == 1 ? 0 + hours.toString() : hours;
+
+            var minutes = x.getMinutes().toString()
+            minutes = minutes.length == 1 ? 0 + minutes : minutes;
+
+            var seconds = x.getSeconds().toString()
+            seconds = seconds.length == 1 ? 0 + seconds : seconds;
+
+            var month = (x.getMonth() + 1).toString();
+            month = month.length == 1 ? 0 + month : month;
+
+            var dt = x.getDate().toString();
+            dt = dt.length == 1 ? 0 + dt : dt;
+
+            var x1 = "Date " + dt + "/" + month + "/" + x.getFullYear();
+            x1 = x1 + " - Time " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+            document.getElementById('ct7').innerHTML = x1;
+            display_c7();
+          }
+
+          function display_c7() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct7()', refresh)
+          }
+          display_c7()
+        </script>
+        <span id='ct7'></span>
+        <ol>
+          <li><a href="/" style="text-decoration:none">Home</a></li>
+          <li>Profile</li>
+          <li><a href="/edit/<%= user._id %>#work2" style="color:green;"><i class="fas fa-chevron-down"></i> Work as Employee</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-us section-bg" data-aos="fade-up" date-aos-delay="200">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex flex-column justify-content-center p-5">
+          <div class="icon-box">
+            <% include ./partials/messages %>
+
+
+            <center>
+              <div class=" mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img class="profilestyle" src="/upload/<%=user.userImage%>" alt="user.userImage" width="200px" style="border-radius: 100%;">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <br>
+                      <!-- <h3></h3> -->
+                      <h5 class="card-title"><b><%=user.fname%> <%=user.lname%></b></h5>
+                      <p class="card-text"> <%=user.prof%></p>
+                      <p class="card-text"><small class="text-muted"><%=user.about%></small></p><br>
+
+                      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </center>
+            <br>
+
+             
+            <!-- <button type="button" class="btn btn-info">Notification</button> -->
+            <div class="row g-0">
+              <hr>
+              <div class="col-md-6">
+                <h4 class="pk-line"><span>&nbsp; Personal Details &nbsp;</span></h4>
+                <br>
+                <table>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Gender : </th>
+                      <td colspan="2"><%=user.gender%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">DOB :</th>
+                      <td colspan="2"><%=user.dob%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Email :</th>
+                      <td colspan="2"><%=user.email%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Phone :</th>
+                      <td colspan="4"><%=user.phone%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Near By :</th>
+                      <td colspan="2"><%=user.address%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">City :</th>
+                      <td colspan="2"><%=user.city%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">State :</th>
+                      <td colspan="2"><%=user.state%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Pin Code :</th>
+                      <td colspan="2"><%=user.pincode%></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+              </div>
+
+              <div class="col-md-6">
+
+                <!-- http://localhost:3000/edit/615a6f85c7515c44fcbce1af#work2 -->
+                <h4 class="pk-line"><span>&nbsp; Employee Details &nbsp;</span></h4>
+                <br>
+                <table>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Work as : </th>
+                      <td colspan="2"><%=user.work%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Work Experiances : </th>
+                      <td colspan="2"><%=user.experiances%></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Status : </th>
+                      <td colspan="2"><%=user.status%></td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">Working Hours : </th>
+                      <td colspan="2"><%=user.stime%></td>
+                    </tr>
+
+
+                    <tr>
+                      <th scope="row">Registered On : </th>
+                      <td colspan="2"><%= user.date.getFullYear().toString() %>-<%= (user.date.getMonth()+1).toString() %>-<%= user.date.getDate().toString() %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Why Us Section -->
+
+
+</main>
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+  <!-- <div class="footer-newsletter">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4>Our Newsletter</h4>
+              <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            </div>
+            <div class="col-lg-6">
+              <form action="" method="post">
+                <input type="email" name="email"><input type="submit" value="Subscribe">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+  <div class="footer-top" style="padding-top: 20px;padding-bottom: 0px;border-bottom-width: 0px;">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-4 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="/home">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/about">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Register as a Heirs</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Privacy policy</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Help</a></li>
+          </ul>
+        </div>
+
+        <!-- <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="services.html">More..</a></li>
+              </ul>
+            </div> -->
+
+        <div class="col-lg-4 col-md-4 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            St.Xavier's College,Digha <br>
+            Patna, Bihar<br>
+            India <br><br>
+            <strong>Phone:</strong> +91 9973437754<br>
+            <strong>Email:</strong> contact2horizonservices@gmail.com<br>
+          </p>
+
+        </div>
+
+        <div class="col-lg-4 col-md-4 footer-info">
+          <h3>About HorizonServices</h3>
+          <p>This is the new online patform where we can find all things depanding upon what we need.</p>
+          <div class="social-links mt-3">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; <strong><span>New Horizon</span></strong>
+    </div>
+    <!-- <div class="credits"> -->
+    <!-- All the links in the footer should remain intact. -->
+    <!-- You can delete the links only if you purchased the pro version. -->
+    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+    <!-- Designed by <a href="/">HorizonServices</a> -->
+    <!-- </div> -->
+  </div>
+</footer><!-- End Footer -->

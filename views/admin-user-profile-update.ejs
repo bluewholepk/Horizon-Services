@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<style>
+		body {
+			background-color: #faf3f3;
+
+		}
+	</style>
+</head>
+
+<body>
+
+	<section>
+		<div class="container" style="padding:70px;">
+			<h3>Update My Profile</h3>
+			<br>
+			<img class="profilestyle" src="/upload/<%=userImage%>" alt="user.userImage" width="200px" style="border-radius: 100%;"><em style="color:red"> (Uploading Profile option will be available after some time.)</em>
+			<form action="/admin/profileImage" enctype="multipart/form-data" method="POST" style="margin-top: 10px">
+				 <label class="custombutton" id="custombutton" style="width:200px;border: 1px solid #ccc;display: inline-block; padding: 6px 12px;cursor: pointer;">
+					 <input type="file" name="upload" accept="image/*" style=" display: none;" onchange="document.getElementById('custombutton').style.border = '2px solid lightgreen'">
+					 Select profile Image 
+					 </label>
+				 <input type="submit" value="Upload" style="border: 1px solid #2d2d2d ; padding: 6px 12px; cursor: pointer; background-color: #2d2d2d; color: #ccc">
+				 </form>
+
+			<br>
+			<form action="/edit/<%= id %>" method="post" name="form1">
+				<hr>
+				<p>User ID : <%= fname %>-<%= id %>-NewHorizon <em style="color:red"> (don't share it.This is you privacy)*</em></p>
+
+
+				<!-- <div class="row">
+					 <label for="email">Name</label>
+					 <div class="col">
+						 <input type="fname"id="fname" name="fname"class="form-control" placeholder="First name" aria-label="First name" value="<%= typeof fname != 'undefined' ? fname : '' %>">
+					 </div>
+					 <div class="col">
+						 <input type="fname"id="lname" name="lname"class="form-control" placeholder="Last name" aria-label="Last name" value="<%= typeof lname != 'undefined' ? lname : '' %>">
+					 </div>
+				 </div> -->
+
+				<div class="row">
+					<div class="col-md-5 mb-3">
+						<label for="validationDefault01">First Name</label>
+						<em style="color:red"> *</em>
+						<input type="text" class="form-control" name="fname" value="<%= fname %>" required>
+					</div>
+					<div class="col-md-5 mb-3">
+						<label for="validationDefault02">Last Name</label>
+						<input type="text" class="form-control" name="lname" value="<%= lname %>">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="inputState">Gender</label>
+						<em style="color:red"> *</em>
+						<select id="inputState" class="form-select" name="gender">
+							<option value="Male" selected>Male</option>
+							<option value="Female">Female</option>
+							<option value="Other">Other</option>
+
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label for="validationDefault01">Profession</label>
+						<input type="text" class="form-control" name="prof" value="<%= prof %>" placeholder="student , teacher,businessman ,police">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label for="validationDefault02">About</label>
+						<input type="text" class="form-control" name="about" value="<%= about %>" placeholder="eg. I am hacker .">
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<label for="validationDefault01">Email</label>
+						<em style="color:red"> (if you need then change)</em>
+						<input type="email" class="form-control" name="email" value="<%= email %>" required>
+					</div>
+					<!-- <div class="col-md-4 mb-3">
+						 <label for="validationDefault02">Phone Number </label>
+						 <em style="color:red"> (don't share your personal phone number)*</em>
+						 <input type="tel" class="form-control" name="phone"  value="<%= phone %>" >
+				 </div> -->
+					<div class="col-md-6 mb-3">
+						<label for="validationDefault02">Date of Birth</label>
+						<input type="date" class="form-control datepicker" name="dob" value="<%= dob %>">
+					</div>
+
+				</div>
+				<div class="form-group mb-3">
+					<label for="inputAddress2">Phone Number </label>
+					<em style="color:red"> (don't share your personal phone number .This is your own risk.)</em>
+					<input type="tel" class="form-control" name="phone" value="<%= phone %>">
+				</div>
+				<!-- <h6>Provide Address for work only  </h6> -->
+				<!-- <em style="color:red">Fill if you want to work here *</em> -->
+				<div class="form-group mb-3">
+					<label for="inputAddress2">Near by</label>
+					<em style="color:red"> (complete address field if you want to work here )</em>
+					<input type="text" class="form-control" placeholder="Apartment, studio, or floor" name="address" value="<%= address %>">
+				</div>
+				<div class="row">
+					<div class="form-group col-md-6 ">
+						<label for="inputCity">City</label>
+						<input type="text" class="form-control" name="city" value="<%= city %>">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputState">State</label>
+						<select id="inputState" class="form-select" name="state">
+							<option value="">-- Select State --</option>
+							<option value="Bihar" selected>Bihar</option>
+							<!-- <option value="jh" >Jharkhand</option> -->
+						</select>
+					</div>
+					<div class="form-group col-md-2">
+						<label for="inputZip">Pincode</label>
+						<input type="text" class="form-control" name="pincode" value="<%= pincode %>">
+					</div>
+				</div>
+				<br>
+				<!-- <hr> -->
+				<button type="submit" class="btn btn-outline-success">Save Changes</button>
+				<a class="btn-outline-primary  btn-get-started animate__animated animate__fadeInUp btn" href="/" role="button" style="text-decoration:none">Don't Save</a>
+				<input class="form-control" type="hidden" name="_method" value="PUT" />
+
+
+
+
+
+				<br><br>
+				<h4 class="pk-line"><span>Work as Employee</span></h4>
+				<br>
+				<em style="color:red;">If you have <b><u>any certified skills</u></b> and you want to work here, Please ! Fill-Up <b><u>valid</u></b> details</em>
+				<br>
+				<br>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">Work As<em style="color:red"> *</em></span>
+					</div>
+					<select type="text" class="form-select " name="work" aria-label="Default select example">
+						<option value="<%= work %>" selected> Selected (<%= work %>)</option>
+						<option value="A/C & Freeze Mechanic">A/C & Freeze Mechanic</option>
+						<option value="Ambulance Service">Ambulance Service</option>
+						<option value="Bike Mechanic">Bike Mechanic</option>
+						<option value="Car Mechanic">Car Mechanic</option>
+						<option value="Labours dealer">Daily Wages Labours</option>
+						<option value="Driver 4W">Driver (Four Wheeler)</option>
+						<option value="Electrician">Electrician</option>
+						<option value="Event Management">Event Management (Marriage ,Party)</option>
+						<option value="Home Appliances">Home Appliances</option>
+						<option value="Home Tutor">Home Tutor</option>
+						<option value="Lawyer">Lawyer</option>
+						<option value="Maid">Maid</option>
+						<option value="Photographer">Photographer</option>
+						<option value="Plumbing">Plumbing</option>
+						<option value="Web Developer">Web Developer</option>
+						<option value="Other">Other</option>
+						<option value="N/A">Not Select</option>
+
+
+						<!-- <option value="Med" >Med</option> -->
+					</select>
+				</div>
+				<div class="input-group mb-3 ">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">Work Experiances <em style="color:red"> *</em></span>
+					</div>
+					<select type="text" class="form-select " name="experiances" aria-label="Default select example">
+						<option value="<%= experiances %>" selected>Selected (<%= experiances %>)</option>
+						<option value="Frasher">Frasher</option>
+						<option value="6 Months">6 Months</option>
+						<option value="1 Year">1 Year</option>
+						<option value="2 Year">2 Years</option>
+						<option value="3 Year">3 Years</option>
+						<option value="3 Year or More">3 Years or More</option>
+						<option value="Full Experianced">Full Experianced</option>
+						<option value="N/A">Not Select</option>
+					</select>
+				</div>
+
+				<div class="row">
+					<div class="form-group  col-md-6 mb-3">
+						<label for="inputState">Work Status</label><em style="color:red"> *</em>
+						<select id="inputState" class="form-select" name="status">
+							<!-- <option value="" selected>- Select One -</option> -->
+							<option value="Active" selected>Active</option>
+							<option value="N/A">De-Active</option>
+							<option value="N/A">Not Select</option>
+							<!-- <option value="Home Tutor" >Home Tutor</option>
+						<option value="A/C Mechanic" >A/C Mechanic</option>
+						<option value="Med" >Med</option> -->
+						</select>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label for="validationDefault02">Working Hour's</label>
+						<input type="string" class="form-control" name="stime" value="<%= stime %>">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputAddress2">Enter Keyword</label>
+					<input type="text" class="form-control" placeholder="HomeTutor Example :Math, Science" name="keyword" value="<%= keyword %>">
+				</div>
+				<hr>
+				<button type="submit" class="btn btn-outline-success">Save Changes</button>
+				<a class="btn-outline-primary  btn-get-started animate__animated animate__fadeInUp btn" href="/" role="button" style="text-decoration:none">Don't Save</a>
+			</form>
+			<br>
+			<br>
+			<div class="card">
+				<div class="card-header">
+					Quote
+				</div>
+				<div class="card-body">
+					<blockquote class="blockquote mb-0">
+						<p>“Truth is ever to be found in simplicity, and not in the multiplicity and confusion of things.”</p>
+						<footer class="blockquote-footer"> <cite title="Source Title">Isaac Newton</cite></footer>
+					</blockquote>
+				</div>
+			</div>
+			<hr>
+		</div>
+
+	</section>
+
+</body>
+
+</html>

@@ -1,0 +1,394 @@
+<!--
+<style >
+  body{
+    background-image: url('../images/image.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  a{
+    color:#000000;
+  }
+</style> -->
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center ">
+  <!-- header-transparent -->
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <div class="logo">
+      <h1 class="text-light"><a href="/"><span>New Horizon</span></a></h1>
+
+    </div>
+
+    <nav id="navbar-pk" class="navbar-pk">
+      <ul>
+        <li><a class="active " href="/" style="text-decoration:none">Home</a></li>
+        <li><a href="/services" style="text-decoration:none">Services</a></li>
+        <li class="dropdown"><a href="/profile" style="text-decoration:none"><span><%= user.fname %></span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="/profile" style="text-decoration:none">Profile</a></li>
+            <li><a href="/edit/<%= user._id %>" style="text-decoration:none">Update Profile</a></li>
+            <li><a href="/logout" style="text-decoration:none">Logout</a></li>
+
+          </ul>
+        </li>
+
+        <li><a href="/about" style="text-decoration:none">About</a></li>
+        <li><a href="/team" style="text-decoration:none">Team</a></li>
+        <li><a href="/conact" style="text-decoration:none">Contact Us</a></li>
+
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle-pk"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+<main id="main">
+  <section class="breadcrumbs" style="background-color: transparent;">
+    <div class="container" style=" border-radius: 25px;background-color: transparent;">
+      <div class="d-flex justify-content-between align-items-center">
+        <script>
+          function display_ct7() {
+            var x = new Date()
+            var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+            hours = x.getHours() % 12;
+            hours = hours ? hours : 12;
+            hours = hours.toString().length == 1 ? 0 + hours.toString() : hours;
+
+            var minutes = x.getMinutes().toString()
+            minutes = minutes.length == 1 ? 0 + minutes : minutes;
+
+            var seconds = x.getSeconds().toString()
+            seconds = seconds.length == 1 ? 0 + seconds : seconds;
+
+            var month = (x.getMonth() + 1).toString();
+            month = month.length == 1 ? 0 + month : month;
+
+            var dt = x.getDate().toString();
+            dt = dt.length == 1 ? 0 + dt : dt;
+
+            var x1 = "Date " + dt + "/" + month + "/" + x.getFullYear();
+            x1 = x1 + " - Time " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+            document.getElementById('ct7').innerHTML = x1;
+            display_c7();
+          }
+
+          function display_c7() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct7()', refresh)
+          }
+          display_c7()
+        </script>
+        <span id='ct7'></span>
+        <ol>
+          <li><a href="/" style="text-decoration:none">Home</a></li>
+          <li>Our Services</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="services ">
+    <div class="container">
+      <% include ./partials/messages %>
+      <div class="section-title">
+        <h2>Our Services</h2>
+      </div>
+      <div class="row">
+
+
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch section-title" data-aos="fade-up" onclick="location.href='/search?worksearch=Home+Tutor&pinsearch=&freesearch=';" style="align:center;">
+          <div class="icon-box icon-box-blue" style="background-image: url('../simage/hometutor.jpg');border-radius: 25px;background-size: 100% 100%;">
+            <div class="icon"><i class="fas fa-book-reader"></i></div>
+            <h4 class="title" style="background-color:white; color:blue; padding-top: 5px;padding-bottom: 5px;">Home Tutors</h4>
+            <p class="description">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch section-title" data-aos="fade-up" data-aos-delay="100" onclick="location.href='/search?worksearch=Lawyer&pinsearch=&freesearch=';">
+          <div class="icon-box icon-box-pink" style="background-image: url('../simage/lawyer.jpg');border-radius: 25px;background-size: 100% 100%;">
+            <div class="icon"><i class="fas fa-gavel"></i></div>
+            <h4 class="title" style="background-color:white; color:red; padding-top: 5px;padding-bottom: 5px;">Lawyer</h4>
+            <p class="description">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch section-title" data-aos="fade-up" data-aos-delay="200" onclick="location.href='/search?worksearch=Photographer&pinsearch=&freesearch=';">
+          <div class="icon-box icon-box-green" style="background-image: url('../simage/photographer.jpg');border-radius: 25px;background-size: 100% 100%;">
+            <div class="icon"><i class="fas fa-camera"></i></div>
+            <h4 class="title" style="background-color:white; color:green; padding-top: 5px;padding-bottom: 5px;">Photographer</h4>
+            <p class="description">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch section-title" data-aos="fade-up" data-aos-delay="300" onclick="location.href='/search?worksearch=Web+Developer&pinsearch=&freesearch=';">
+          <div class="icon-box icon-box-cyan" style="background-image: url('../simage/webdeveloper.jpg');border-radius: 25px;background-size: 100% 100%;">
+            <div class="icon"><i class="fas fa-laptop-code"></i></div>
+            <h4 class="title" style="background-color:white; color:cyan; padding-top: 5px;padding-bottom: 5px;">Web Developer</h4>
+            <p class="description">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+          <!-- onclick="location.href='/search?worksearch=A%2FC+%26+Freeze+Mechanic&pinsearch=&freesearch=';"  -->
+          <div class="icon-box icon-box-pink" style=" border-radius: 25px;">
+            <div class="icon"><i class="fas fa-fan"></i></div>
+            <h4 class="title">A/C & Freeze Machanic</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <!-- onclick="location.href='/search?worksearch=Ambulance+Service&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-cyan" style=" border-radius: 25px;">
+            <div class="icon"><i class="fas fa-ambulance"></i></div>
+            <h4 class="title">Ambulance Service</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <!-- onclick="location.href='/search?worksearch=Bike+Mechanic&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-green" style=" border-radius: 25px;">
+            <div class="icon"><i class="fas fa-car"></i></div>
+            <h4 class="title">Bike/Car Mechanic</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <!-- onclick="location.href='/search?worksearch=Labours+dealer&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-blue" style=" border-radius: 25px;">
+            <div class="icon"><i class="fas fa-hard-hat"></i></div>
+            <h4 class="title">Daily Wages Labour's</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+          <!-- onclick="location.href='/search?worksearch=Driver+4W&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-pink" style=" border-radius: 25px;">
+            <div class="icon"><i class="far fa-dot-circle"></i></div>
+            <h4 class="title">Driver</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <!-- onclick="location.href='/search?worksearch=Electrician&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-cyan" style=" border-radius: 25px;">
+            <div class="icon"><i class="fab fa-medapps"></i></div>
+            <h4 class="title">Electrician</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <!-- onclick="location.href='/search?worksearch=Home+Appliances&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-green" style=" border-radius: 25px;">
+            <div class="icon"><i class="fas fa-house-user"></i></div>
+            <h4 class="title">Home Appliances</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <!-- onclick="location.href='/search?worksearch=Maid&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-cyan" style=" border-radius: 25px;">
+            <div class="icon"><i class="fas fa-quidditch"></i></div>
+            <h4 class="title">Maid</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <!-- onclick="location.href='/search?worksearch=Plumbing&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-blue" style=" border-radius: 25px;">
+            <div class="icon"><i class="fas fa-wrench"></i></div>
+            <h4 class="title">Plumbing</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+          <!-- onclick="location.href='/search?worksearch=Other&pinsearch=&freesearch=';" -->
+          <div class="icon-box icon-box-pink" style=" border-radius: 25px;">
+            <div class="icon"><i class="fas fa-store"></i></div>
+            <h4 class="title">Saloon Service</h4>
+            <p class="description">This service will be available after some time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+
+  <!-- <section class="service-details">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <img src="assets/img/service-details-1.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a href="#">Our Mission</a></h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <img src="assets/img/service-details-2.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a href="#">Our Plan</a></h5>
+                <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <img src="assets/img/service-details-3.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a href="#">Our Vision</a></h5>
+                <p class="card-text">Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card">
+              <div class="card-img">
+                <img src="assets/img/service-details-4.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a href="#">Our Care</a></h5>
+                <p class="card-text">Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium voluptatem. In molestiae earum ab sit esse voluptatem. Eos ipsam cumque ipsum officiis qui nihil aut incidunt aut</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+  <!-- End Service Details Section -->
+
+</main>
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+  <!-- <div class="footer-newsletter">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4>Our Newsletter</h4>
+              <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            </div>
+            <div class="col-lg-6">
+              <form action="" method="post">
+                <input type="email" name="email"><input type="submit" value="Subscribe">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+  <div class="footer-top" style="padding-top: 20px;padding-bottom: 0px;border-bottom-width: 0px;">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-4 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="/home">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/about">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Register as a Heirs</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Privacy policy</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Help</a></li>
+          </ul>
+        </div>
+
+        <!-- <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="services.html">More..</a></li>
+              </ul>
+            </div> -->
+
+        <div class="col-lg-4 col-md-4 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            St.Xavier's College,Digha <br>
+            Patna, Bihar<br>
+            India <br><br>
+            <strong>Phone:</strong> +91 9973437754<br>
+            <strong>Email:</strong> contact2horizonservices@gmail.com<br>
+          </p>
+
+        </div>
+
+        <div class="col-lg-4 col-md-4 footer-info">
+          <h3>About HorizonServices</h3>
+          <p>This is the new online patform where we can find all things depanding upon what we need.</p>
+          <div class="social-links mt-3">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; <strong><span>New Horizon</span></strong>
+    </div>
+    <!-- <div class="credits"> -->
+    <!-- All the links in the footer should remain intact. -->
+    <!-- You can delete the links only if you purchased the pro version. -->
+    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+    <!-- Designed by <a href="/">HorizonServices</a> -->
+    <!-- </div> -->
+  </div>
+</footer><!-- End Footer -->
