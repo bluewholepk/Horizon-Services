@@ -1,0 +1,77 @@
+body {
+  /* background-color: black; */
+  /* color: black; */
+}
+
+body::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+
+th {
+  padding-right: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* .form-control{
+  margin-right: 8px;
+
+} */
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.pk-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.pk-line:before,
+.pk-line:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid #000;
+  margin: auto;
+}
+
+/* .pk-line {
+   width: 100%;
+   text-align: center;
+   border-bottom: 1px solid #000;
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+}
+
+.pk-line span{
+    background:#fff;
+    padding:0 10px;
+    border: 1px;
+} */
+.pk {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 1px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+
+  100% {
+    background-position: 500%;
+  }
+}
